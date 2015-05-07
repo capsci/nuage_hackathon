@@ -1,5 +1,5 @@
 # nuage_hackathon
-Code submission for Nuage hackathon held at Centennial Campus on 02-23-2015
+Code submission for hackathon organized by [Nuage Networks](http://www.nuagenetworks.net/) held at Centennial Campus on 02-23-2015
 
 ####Requirement
 * Create a program to implement [ACL(Access Control List)](http://en.wikipedia.org/wiki/Access_control_list).
