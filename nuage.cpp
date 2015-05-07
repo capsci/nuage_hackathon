@@ -1,10 +1,13 @@
+
+// Access Control List
+
 #include<iostream>
 #include<string.h>
 #include<stdlib.h>
 
 using namespace std;
 
-
+// structure to store rule
 typedef struct rule
 {
 	string sourceIP;
@@ -17,6 +20,7 @@ typedef struct rule
 	struct rule *next;
 }node;
 
+// structure to headers for multiple ACLs
 typedef struct acl
 {
 	string name;
@@ -25,8 +29,10 @@ typedef struct acl
 	struct acl *next;
 }acl;
 
+// pointer to first ACL
 acl *A;
 
+// create a new ACL list
 void Acl_list_create(string name, string action)
 {
 	cout<<"Create"<<endl;
@@ -55,6 +61,7 @@ void Acl_list_create(string name, string action)
 	}
 }
 
+// adds rule to ACL list
 bool Acl_add_rule(string name, string srcIP, string destIP, string protocol, string srcPort, string destPort, string priority, string action)
 {
 	acl *temp;
@@ -103,6 +110,7 @@ bool Acl_add_rule(string name, string srcIP, string destIP, string protocol, str
 	return true;
 }
 
+// print ACL
 void printAcl()
 {
 	cout<<"Printing"<<endl;
@@ -122,6 +130,7 @@ void printAcl()
 	}
 }
 
+// check if incoming packet is in accordance with either of the rules
 bool checkRule(rule *r,string srcIP, string destIP, string protocol, string srcPort, string destPort)
 {
 	bool rule = true;
@@ -148,6 +157,7 @@ bool checkRule(rule *r,string srcIP, string destIP, string protocol, string srcP
 	return rule;
 }
 
+// get packet and check it against each ACL
 rule* Acl_check_packet(string name,string srcIP,string destIP, string protocol, string srcPort, string destPort)
 {
 	cout<<"Check"<<endl;
@@ -181,6 +191,7 @@ rule* Acl_check_packet(string name,string srcIP,string destIP, string protocol, 
 	return r;
 }
 
+// sample test case
 void testCase()
 {
 	cout<<"TestCase"<<endl;
@@ -197,6 +208,7 @@ void testCase()
 	}
 }
 
+// call main
 int main()
 {
 	A = NULL;
